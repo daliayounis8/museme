@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 const IMAGES = [
-  { src: "/carousel/shot1.jpg", title: "Golden Elegance" },
+  { src: "/carousel/shot1.jpg", title: "Powerful Portraits" },
   { src: "/carousel/shot2.jpg", title: "City Muse" },
-  { src: "/carousel/shot3.jpg", title: "Timeless Glamour" },
-  { src: "/carousel/shot4.jpg", title: "Dance of Light" },
+  { src: "/carousel/shot3.jpg", title: "Frozen Dance" },
+  { src: "/carousel/shot4.jpg", title: "Confident Goddess" },
 ];
 
 export default function HeroCarousel() {
