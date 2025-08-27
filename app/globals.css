@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* tiny, luxe fades */
+@keyframes fadeIn { from {opacity:0} to {opacity:1} }
+@keyframes fadeInUp { from {opacity:0; transform: translateY(12px)} to {opacity:1; transform: translateY(0)} }
+.animate-fadeIn   { animation: fadeIn 700ms ease-out both }
+.animate-fadeInUp { animation: fadeInUp 800ms ease-out both }
+.delay-200 { animation-delay: .2s }
+.delay-400 { animation-delay: .4s }
+.delay-600 { animation-delay: .6s }
