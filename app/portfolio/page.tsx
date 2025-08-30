@@ -1,54 +1,47 @@
 "use client";
-import Image from "next/image";
 import { useState } from "react";
+import Image from "next/image";
 
-type Item = { src: string; alt: string; tag: "Portraits" | "Dance" | "Events" };
-
-const items: Item[] = [
+type Item = { src: string; alt: string; tag: "Portraits" | "Branding" | "Dance" | "Events" };
+const ITEMS: Item[] = [
   { src: "/portfolio/shot1.jpg", alt: "Portrait 1", tag: "Portraits" },
-  { src: "/portfolio/shot2.jpg", alt: "Portrait 2", tag: "Portraits" },
+  { src: "/portfolio/shot2.jpg", alt: "Branding 1", tag: "Branding" },
   { src: "/portfolio/shot3.jpg", alt: "Dance 1", tag: "Dance" },
   { src: "/portfolio/shot4.jpg", alt: "Events 1", tag: "Events" },
-  { src: "/portfolio/shot5.jpg", alt: "Dance 2", tag: "Dance" },
-  { src: "/portfolio/shot6.jpg", alt: "Portrait 3", tag: "Portraits" },
+  { src: "/portfolio/shot5.jpg", alt: "Portrait 2", tag: "Portraits" },
+  { src: "/portfolio/shot6.jpg", alt: "Branding 2", tag: "Branding" },
 ];
 
-const TAGS = ["All Work", "Portraits", "Dance", "Events"] as const;
+const TAGS = ["All", "Portraits", "Branding", "Dance", "Events"] as const;
 type Tag = typeof TAGS[number];
 
 export default function PortfolioPage() {
-  const [tag, setTag] = useState<Tag>("All Work");
-  const filtered = tag === "All Work" ? items : items.filter((i) => i.tag === tag);
+  const [tag, setTag] = useState<Tag>("All");
+  const filtered = tag === "All" ? ITEMS : ITEMS.filter((i) => i.tag === tag);
 
   return (
     <section>
-      <div className="text-center">
-        <h1 className="font-[var(--font-display)] text-5xl">Our Complete Portfolio</h1>
-        <p className="text-muted max-w-3xl mx-auto mt-3">
-          Explore luxury photography across portraits, dance, and events.
-        </p>
-      </div>
+      <div className="h-kicker text-center">Portfolio</div>
+      <h1 className="h-display text-5xl text-center mt-2">A Curated Selection</h1>
+      <p className="text-stone text-center max-w-2xl mx-auto mt-3">Movement, emotion, and elegance—captured with intention.</p>
 
-      <div className="flex flex-wrap gap-3 justify-center mt-8">
+      <div className="flex flex-wrap gap-2 justify-center mt-8">
         {TAGS.map((t) => (
           <button
             key={t}
             onClick={() => setTag(t)}
             className={`px-4 py-2 rounded-lg border transition ${
-              tag === t ? "bg-charcoal text-white" : "bg-white text-charcoal hover:bg-gray-50"
+              tag === t ? "bg-onyx text-paper" : "bg-paper hover:bg-linen"
             }`}
           >
             {t}
-            <span className="ml-1 text-muted">
-              ({t === "All Work" ? items.length : items.filter((i) => i.tag === t).length})
-            </span>
           </button>
         ))}
       </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
         {filtered.map((img) => (
-          <div key={img.src} className="relative h-[420px] rounded-2xl overflow-hidden shadow-soft bg-white">
+          <div key={img.src} className="relative h-[420px] rounded-xl2 overflow-hidden bg-paper shadow-soft border">
             <Image src={img.src} alt={img.alt} fill className="object-cover" />
           </div>
         ))}

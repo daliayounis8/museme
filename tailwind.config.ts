@@ -5,17 +5,24 @@ export default {
   theme: {
     extend: {
       colors: {
-        cream: "#FFF7EC",
-        gold: "#F4C35B",
-        goldDark: "#D9A43A",
-        charcoal: "#111827",
-        muted: "#6B7280",
+        champagne: "#FAF6EF", // page background
+        linen: "#F5EEE3",     // soft section tint
+        blush: "#EBD9CF",     // accent
+        gold: "#C8A96A",      // luxe accent
+        goldDark: "#AA8A49",
+        onyx: "#0F0F10",      // deep text/panel
+        stone: "#6B6B6B",     // muted text
+        paper: "#FFFFFF",     // cards
       },
       boxShadow: {
-        soft: "0 10px 30px rgba(0,0,0,0.08)",
+        luxe: "0 20px 40px rgba(0,0,0,0.08)",
+        soft: "0 10px 24px rgba(0,0,0,0.06)",
       },
       borderRadius: {
-        xl2: "1rem",
+        xl2: "1.25rem",
+      },
+      letterSpacing: {
+        wideish: ".02em",
       },
     },
   },
